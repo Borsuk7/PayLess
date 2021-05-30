@@ -1,7 +1,17 @@
-﻿
+﻿@model Product
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Pay Less";
 }
-
-<h1>View</h1>
+<div>
+    <h1 class="text-center">Hi there, input the name of product which you need</h1>
+    <form asp-action="PriceResult" asp-controller="Home" method="post">
+        <div class="form-group">
+            <label asp-for="Name" class="text-black-50">Name of product:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="text-center" style="margin: 5px;">
+            <input class="btn btn-success btn-lg" type="submit" value="Search" />
+        </div>
+    </form>
+</div>
 

@@ -1,0 +1,50 @@
+﻿@model List<SuperMarket>
+@{
+    ViewData["Title"] = "Pay Less";
+}
+<div>
+    <h1 class="text-center">Below you can see all prices</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Supermarket</th>
+                <th>Link</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Name</th>
+                    <th>
+                        <a href="@item.Link">@item.Product</a>
+                    </th>
+                    <th>@item.Price</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        @{
+            string text;
+            double a = Math.Min(Math.Min(Model[0].Price, Model[1].Price), Model[2].Price);
+            if (a == Model[0].Price)
+            {
+                text = Model[0].Name;
+            }
+            else if (a == Model[1].Price)
+            {
+                text = Model[1].Name;
+            }
+            else
+            {
+                text = Model[2].Name;
+            }
+
+        }
+        <span class="text-dark text-lg-start">Best choice: @text</span>
+
+
+    </div>
+

@@ -17,6 +17,7 @@ namespace PayLess
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,12 +27,11 @@ namespace PayLess
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseRouting();
-
+            app.UseStaticFiles();
+            app.UseRouting();            
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
